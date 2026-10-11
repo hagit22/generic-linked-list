@@ -639,6 +639,45 @@ a:hover { color: var(--color-accent-600); }
 .pair-code.sm { font-size: 22px; line-height: 1.4; padding: 26px 36px; }
 .pair-code .rt { border-bottom: 3px solid var(--color-accent-2-500); }
 
+.sum-table { direction: ltr; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 260px; gap: 12px 24px; align-items: center; width: 100%; max-width: 1728px; align-self: center; margin-top: 24px; }
+.sum-table .pair-tag { justify-self: start; }
+.sum-code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 23px; line-height: 1.3; padding: 12px 22px; border-radius: 10px; background: var(--color-neutral-900); color: var(--color-neutral-100); white-space: pre; }
+.sum-code .hl-type { color: var(--color-accent-300); font-weight: 700; }
+.sum-label { direction: rtl; text-align: right; font-size: 28px; font-weight: 700; color: var(--color-accent-2-700); }
+
+.ex4-grid { direction: ltr; row-gap: 28px; margin-top: -24px !important; }
+.ex4-grid .gx-card { padding: 22px 32px; }
+.gx-code.ex4 { font-size: 20px; line-height: 1.4; }
+.gx-code .cm { color: var(--color-neutral-600); }
+.ref-code .cm { color: var(--color-neutral-400); }
+.gx-code.ex5 { font-size: 18px; line-height: 1.35; }
+
+.app-grid { direction: rtl; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 32px; width: 100%; max-width: 1728px; align-self: center; margin-top: 8px; }
+.app-card { grid-column: span 2; display: flex; flex-direction: column; gap: 14px; padding: 28px 32px; background: var(--color-neutral-100); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.app-card:nth-child(4) { grid-column: 2 / span 2; }
+.app-card:nth-child(5) { grid-column: 4 / span 2; }
+.app-head { display: flex; align-items: center; gap: 16px; }
+.app-num { flex: none; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--color-accent); color: var(--color-bg); font-family: var(--font-heading); font-size: 28px; }
+.app-title { margin: 0; font-size: 34px; font-weight: 700; }
+.app-text { margin: 0; font-size: 26px; line-height: 1.45; text-wrap: pretty; }
+.app-ex { margin: auto 0 0; direction: ltr; text-align: left; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 20px; line-height: 1.4; color: var(--color-neutral-700); white-space: pre; }
+.gx-code .cn { font-weight: 800; color: var(--color-accent-2-800); background: var(--color-accent-2-200); padding: 2px 8px; border-radius: 6px; }
+.gx-card.zoomable { cursor: zoom-in; }
+.gx-card.zoomed { position: fixed; top: 50%; left: 50%; width: 840px; box-sizing: border-box; transform: translate(-50%, -50%) scale(1.8); z-index: 60; cursor: zoom-out; box-shadow: 0 30px 60px rgba(0,0,0,0.35); }
+
+.grp { display: grid; grid-template-columns: minmax(0, 1fr) 200px; column-gap: 32px; width: 100%; }
+.grp-label { direction: rtl; display: flex; align-items: center; padding-left: 16px; border-left: 3px solid var(--color-accent-2-300); font-size: 22px; font-weight: 700; color: var(--color-accent-2-700); }
+
+.grp { grid-template-columns: minmax(0, 1fr) 240px; }
+.solo-card[hidden] { display: none; }
+.solo-head { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-bottom: 20px; }
+.solo-head .slide-title { margin: 0 !important; }
+.solo-tabs { direction: ltr; display: flex; gap: 10px; }
+.solo-tabs button { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 22px; font-weight: 700; padding: 8px 20px; border-radius: 999px; border: 2px solid var(--color-accent-2-500); background: transparent; color: var(--color-accent-2-800); cursor: pointer; }
+.solo-tabs button:hover { background: var(--color-accent-2-200); }
+.solo-tabs button.on { background: var(--color-accent-2-600); border-color: var(--color-accent-2-600); color: var(--color-bg); }
+.solo-tabs button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
 
 
 </style>
@@ -1385,7 +1424,354 @@ int n = CountFirstName(node1, "Adi");</div>
   <div class="page-foot" aria-hidden="true"></div>
 </section>
 
+<!--section class="slide content ref-slide tight" data-label="סיכום תבניות">
+  <h2 class="slide-title">סיכום: <span dir="ltr">Node&lt;T&gt;</span> בשימוש</h2>
+  <div class="sum-table">
+    <span class="pair-tag">T = int</span>
+    <span class="pair-tag">T = Contact</span>
+    <span></span>
 
+    <div class="sum-code">Node<span class="hl-type">&lt;int&gt;</span> node1 = new Node<span class="hl-type">&lt;int&gt;</span>(num1);</div>
+    <div class="sum-code">Node<span class="hl-type">&lt;Contact&gt;</span> node1 = new Node<span class="hl-type">&lt;Contact&gt;</span>(c1);</div>
+    <span class="sum-label">הצהרה ויצירה</span>
+
+    <div class="sum-code">Node<span class="hl-type">&lt;int&gt;</span> current = head;</div>
+    <div class="sum-code">Node<span class="hl-type">&lt;Contact&gt;</span> current = head;</div>
+    <span class="sum-label">משתנה מעבר</span>
+
+    <div class="sum-code"><span class="hl-type">int</span> num = current.GetValue();</div>
+    <div class="sum-code"><span class="hl-type">Contact</span> c = current.GetValue();</div>
+    <span class="sum-label">קבלת הערך</span>
+
+    <div class="sum-code">num == value</div>
+    <div class="sum-code">c.GetFirstName() == name</div>
+    <span class="sum-label">שימוש בערך</span>
+
+    <div class="sum-code">CountValue(Node<span class="hl-type">&lt;int&gt;</span> head, int value)</div>
+    <div class="sum-code">CountFirstName(Node<span class="hl-type">&lt;Contact&gt;</span> head, string name)</div>
+    <span class="sum-label">רשימה כפרמטר</span>
+
+    <div class="sum-code">public static Node<span class="hl-type">&lt;int&gt;</span> FindNode(...)</div>
+    <div class="sum-code">public static Node<span class="hl-type">&lt;Contact&gt;</span> FindNode(...)</div>
+    <span class="sum-label">החזרת חוליה</span>
+
+    <div class="sum-code">public static <span class="hl-type">int</span> GetLast(...)</div>
+    <div class="sum-code">public static <span class="hl-type">Contact</span> GetLast(...)</div>
+    <span class="sum-label">החזרת ערך</span>
+  </div>
+  <div class="page-foot" aria-hidden="true"></div>
+</section-->
+
+<section class="slide content intro-slide" data-label="שרשרת כתכונה">
+  <h2 class="intro-title">שרשרת חוליות כתכונה במחלקה</h2>
+  <div class="page-foot" aria-hidden="true"></div>
+</section>
+
+<section class="slide content ref-slide tight" data-label="מחלקות התרגיל">
+  <h2 class="slide-title">בחרו נושא וצרו עבורו מחלקה. לדוגמה:</h2>
+  <div class="gx-grid ex4-grid">
+    <div class="gx-card">
+      <pre class="gx-code ex4">public class <span class="cn">Song</span>
+{
+    private string name;
+    private string genre;
+        <span class="cm">// Pop, Rock, Electronic, Hip-hop</span>
+    private int totalMinutesPlayed;
+
+    public Song(string name)
+    public Song(string name, string genre)
+    <span class="cm">// get: Name, Genre, TotalMinutesPlayed</span>
+    <span class="cm">// set: Genre, TotalMinutesPlayed</span>
+    public override string ToString()
+}</pre>
+    </div>
+    <div class="gx-card">
+      <pre class="gx-code ex4">public class <span class="cn">Student</span>
+{
+    private string name;
+    private string megama;
+        <span class="cm">// Music, Sports, Philosophy, Computers</span>
+    private int averageGrade;
+
+    public Student(string name)
+    public Student(string name, string megama)
+    <span class="cm">// get: Name, Megama, AverageGrade</span>
+    <span class="cm">// set: Megama, AverageGrade</span>
+    public override string ToString()
+}</pre>
+    </div>
+    <div class="gx-card">
+      <pre class="gx-code ex4">public class <span class="cn">Car</span>
+{
+    private string licensePlate;
+    private string model;
+        <span class="cm">// Picanto, Corolla, i30, Octavia</span>
+    private int totalKm;
+
+    public Car(string licensePlate)
+    public Car(string licensePlate, string model)
+    <span class="cm">// get: LicensePlate, Model, TotalKm</span>
+    <span class="cm">// set: Model, TotalKm</span>
+    public override string ToString()
+}</pre>
+    </div>
+    <div class="gx-card">
+      <pre class="gx-code ex4">public class <span class="cn">Player</span>
+{
+    private string name;
+    private string position;
+        <span class="cm">// Goalkeeper, Defender, Midfielder, Forward</span>
+    private int totalGoals;
+
+    public Player(string name)
+    public Player(string name, string position)
+    <span class="cm">// get: Name, Position, TotalGoals</span>
+    <span class="cm">// set: Position, TotalGoals</span>
+    public override string ToString()
+}</pre>
+    </div>
+  </div>
+  <div class="page-foot" aria-hidden="true"></div>
+</section>
+
+<!--section class="slide content ref-slide tight" data-label="מחלקות המכילות">
+  <h2 class="slide-title">צרו מחלקה המכילה שרשרת חוליות מהטיפוס שבחרתם. לדוגמה:</h2>
+  <div class="gx-grid ex4-grid">
+    <div class="gx-card">
+      <pre class="gx-code ex5">public class Playlist
+{
+    private string playListName;
+    private Node<b>&lt;Song&gt;</b> songList;
+    private Node<b>&lt;Song&gt;</b> lastSong;
+    public Playlist(string playlistName)
+    public string GetPlaylistName()
+    public void AddSong(Song song)
+    public bool PlaySong(string name, int minutes)
+    public string GetGenre(string name)
+    public Node<b>&lt;Song&gt;</b> SongsInGenre(string genre)
+    public Song TopInGenre(string genre)
+    public Node<b>&lt;Song&gt;</b> SortedByMinutes()      <span class="cm">// bonus</span>
+    public override string ToString()
+}</pre>
+    </div>
+    <div class="gx-card">
+      <pre class="gx-code ex5">public class Kita
+{
+    private string nameOfKita
+    private Node<b>&lt;Student&gt;</b> studentList;;
+    private Node<b>&lt;Student&gt;</b> lastStudent;
+    public Kita(string kitaName)
+    public string GetKitaName()
+    public void AddStudent(Student student)
+    public bool TakeExam(string name, int grade)
+    public string GetMegama(string name)
+    public Node<b>&lt;Student&gt;</b> StudentsInMegama(string megama)
+    public Student BestInMegama(string megama)
+    public Node<b>&lt;Student&gt;</b> RankedByGrade()     <span class="cm">// bonus</span>
+    public override string ToString()
+}</pre>
+    </div>
+    <div class="gx-card">
+      <pre class="gx-code ex5">public class CarRental
+{
+    private string nameOfCarRebtal;
+    private Node<b>&lt;Car&gt;</b> carList;
+    private Node<b>&lt;Car&gt;</b> lastCar;
+    public CarRental(string branchName)
+    public string GetBranchName()
+    public void AddCar(Car car)
+    public bool RentCar(string licensePlate, int km)
+    public string GetModel(string licensePlate)
+    public Node<b>&lt;Car&gt;</b> CarsOfModel(string model)
+    public Car LowestKmOfModel(string model)
+    public Node<b>&lt;Car&gt;</b> SortedByKm()            <span class="cm">// bonus</span>
+    public override string ToString()
+}</pre>
+    </div>
+    <div class="gx-card">
+      <pre class="gx-code ex5">public class SoccerTeam
+{
+  private string nameOfSoccerTeam;
+    private Node<b>&lt;Player&gt;</b> playersList;
+    private Node<b>&lt;Player&gt;</b> lastPlayer;
+    public SoccerTeam(string teamName)
+    public string GetTeamName()
+    public void AddPlayer(Player player)
+    public bool AddGoals(string name, int goals)
+    public string GetPosition(string name)
+    public Node<b>&lt;Player&gt;</b> PlayersInPosition(string position)
+    public Player TopScorerInPosition(string position)
+    public Node<b>&lt;Player&gt;</b> RankedByGoals()       <span class="cm">// bonus</span>
+    public override string ToString()
+}</pre>
+    </div>
+  </div>
+  <div class="page-foot" aria-hidden="true"></div>
+</section-->
+
+<!--section class="slide content ref-slide tight" data-label="מחלקה מכילה: Playlist">
+  <h2 class="slide-title">מחלקה מכילה: Playlist</h2>
+  <div class="solo-card">
+    <pre class="gx-code">public class <span class="cn">Playlist</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private string playlistName;
+    private Node<b>&lt;Song&gt;</b> <span class="cn">songList</span>;
+    private Node<b>&lt;Song&gt;</b> lastSong;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public Playlist(string playlistName)
+    public string GetPlaylistName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
+      <div class="grp"><pre class="gx-code">    public void AddSong(Song song)</pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool PlaySong(string name, int minutes)</pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public string GetGenre(string name)
+    public Node<b>&lt;Song&gt;</b> SongsInGenre(string genre)
+    public Song TopInGenre(string genre)</pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Song&gt;</b> SortedByMinutes()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+  <div class="page-foot" aria-hidden="true"></div>
+</section-->
+
+<section class="slide content ref-slide tight" data-label="מחלקה מכילה">
+  <div class="solo-head">
+    <h2 class="slide-title">צרו מחלקה מכילה</h2>
+    <div class="solo-tabs">
+      <button type="button" class="on" data-cls="playlist">Playlist</button>
+      <button type="button" data-cls="kita">Kita</button>
+      <button type="button" data-cls="carrental">CarRental</button>
+      <button type="button" data-cls="soccerteam">SoccerTeam</button>
+    </div>
+  </div>
+
+  <div class="solo-card" data-cls="playlist">
+    <pre class="gx-code">public class <span class="cn">Playlist</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private string playlistName;
+    private Node<b>&lt;Song&gt;</b> <span class="cn">songList</span>;
+    private Node<b>&lt;Song&gt;</b> lastSong;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public Playlist(string playlistName)
+    public string GetPlaylistName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
+      <div class="grp"><pre class="gx-code">    public void AddSong(Song song)</pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool PlaySong(string name, int minutes)</pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public string GetGenre(string name)
+    public Node<b>&lt;Song&gt;</b> SongsInGenre(string genre)
+    public Song TopInGenre(string genre)</pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Song&gt;</b> SortedByMinutes()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+
+  <div class="solo-card" data-cls="kita" hidden>
+    <pre class="gx-code">public class <span class="cn">Kita</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private string kitaName;
+    private Node<b>&lt;Student&gt;</b> <span class="cn">studentList</span>;
+    private Node<b>&lt;Student&gt;</b> lastStudent;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public Kita(string kitaName)
+    public string GetKitaName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
+      <div class="grp"><pre class="gx-code">    public void AddStudent(Student student)</pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool TakeExam(string name, int grade)</pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public string GetMegama(string name)
+    public Node<b>&lt;Student&gt;</b> StudentsInMegama(string megama)
+    public Student BestInMegama(string megama)</pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Student&gt;</b> RankedByGrade()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+
+  <div class="solo-card" data-cls="carrental" hidden>
+    <pre class="gx-code">public class <span class="cn">CarRental</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private string branchName;
+    private Node<b>&lt;Car&gt;</b> <span class="cn">carList</span>;
+    private Node<b>&lt;Car&gt;</b> lastCar;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public CarRental(string branchName)
+    public string GetBranchName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
+      <div class="grp"><pre class="gx-code">    public void AddCar(Car car)</pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool RentCar(string licensePlate, int km)</pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public string GetModel(string licensePlate)
+    public Node<b>&lt;Car&gt;</b> CarsOfModel(string model)
+    public Car LowestKmOfModel(string model)</pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Car&gt;</b> SortedByKm()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+
+  <div class="solo-card" data-cls="soccerteam" hidden>
+    <pre class="gx-code">public class <span class="cn">SoccerTeam</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private string teamName;
+    private Node<b>&lt;Player&gt;</b> <span class="cn">playerList</span>;
+    private Node<b>&lt;Player&gt;</b> lastPlayer;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public SoccerTeam(string teamName)
+    public string GetTeamName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
+      <div class="grp"><pre class="gx-code">    public void AddPlayer(Player player)</pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddGoals(string name, int goals)</pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public string GetPosition(string name)
+    public Node<b>&lt;Player&gt;</b> PlayersInPosition(string position)
+    public Player TopScorerInPosition(string position)</pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Player&gt;</b> RankedByGoals()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+
+  <div class="page-foot" aria-hidden="true"></div>
+</section>
+
+<section class="slide content ref-slide tight" data-label="התוכנית הראשית">
+  <h2 class="slide-title">צרו יישום לבדיקת המחלקה המכילה שיצרתם:</h2>
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">1</span><h3 class="app-title">יצירה</h3></div>
+      <p class="app-text">צרו מחלקה מכילה ולפחות 5 עצמים. השתמשו בשתי הפעולות הבונות.</p>
+      <!--pre class="app-ex">Playlist p = new Playlist("Workout");</pre-->
+    </div>
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">2</span><h3 class="app-title">הוספה והדפסה</h3></div>
+      <p class="app-text">הוסיפו את כל העצמים למחלקה המכילה והדפיסו אותה.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">3</span><h3 class="app-title">עדכון</h3></div>
+      <p class="app-text">בדקו את פעולת העדכון, כולל מקרים לא תקינים.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">4</span><h3 class="app-title">חיפוש וסינון</h3></div>
+      <p class="app-text">זמנו כל אחת מפעולות החיפוש והסינון, והדפיסו את התוצאות.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">5</span><h3 class="app-title">בונוס: מיון</h3></div>
+      <p class="app-text">הדפיסו את הרשימה הממוינת.</p>
+    </div>
+  <div class="page-foot" aria-hidden="true"></div>
+</section>
 
 
 
@@ -1490,6 +1876,18 @@ int n = CountFirstName(node1, "Adi");</div>
   window.addEventListener('load', scale);
   if (window.ResizeObserver) new ResizeObserver(scale).observe(document.body);
   show(0);
+
+  document.querySelectorAll('.solo-tabs').forEach(function (tabs) {
+    var slide = tabs.closest('.slide');
+    tabs.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
+        tabs.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+        slide.querySelectorAll('.solo-card[data-cls]').forEach(function (c) { c.hidden = c.dataset.cls !== b.dataset.cls; });
+        b.blur();
+      });
+    });
+  });
 
   document.querySelectorAll('.task-hint-btn').forEach(function (btn) {
     var hint = btn.nextElementSibling;
