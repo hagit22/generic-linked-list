@@ -680,6 +680,33 @@ a:hover { color: var(--color-accent-600); }
 
 
 
+
+.app-grid-6 .app-card:nth-child(4) { grid-column: auto / span 2; }
+.app-grid-6 .app-card:nth-child(5) { grid-column: auto / span 2; }
+.app-grid-6 .app-text { font-size: 24px; }
+.app-bonus { margin: 20px 0 0; text-align: center; font-size: 26px; font-weight: 700; color: var(--color-accent-2-700); }
+.app-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1400px; }
+.app-grid-4 .app-card { grid-column: auto; }
+.dg-stage { direction: ltr; position: relative; width: 1728px; height: 760px; align-self: center; margin-top: 8px; }
+.dg-tag { position: absolute; direction: rtl; font-family: var(--font-body); font-size: 24px; }
+.dg-box { position: absolute; box-sizing: border-box; border: 2px solid var(--color-text); background: var(--color-surface); }
+.dg-title { height: 40px; box-sizing: border-box; display: flex; align-items: center; padding: 0 14px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 22px; font-weight: 800; color: var(--color-accent-2-800); background: var(--color-accent-2-200); border-bottom: 2px solid var(--color-text); }
+.dg-row { height: 40px; display: flex; align-items: center; padding: 0 14px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 19px; }
+.dg-field { position: absolute; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 20px; font-weight: 700; }
+.dg-cell { position: absolute; box-sizing: border-box; width: 100px; height: 64px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--color-text); background: var(--color-bg); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 20px; }
+.dg-node { position: absolute; box-sizing: border-box; width: 140px; height: 64px; display: flex; border: 2px solid var(--color-text); background: var(--color-surface); }
+.dg-node > span { flex: 1; display: flex; align-items: center; justify-content: center; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 18px; }
+.dg-node > span + span { border-left: 2px solid var(--color-text); }
+.dg-obj { position: absolute; box-sizing: border-box; width: 140px; height: 96px; padding: 8px 12px; display: flex; flex-direction: column; justify-content: center; gap: 2px; border-radius: 10px; background: var(--color-neutral-100); box-shadow: var(--shadow-md); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 17px; line-height: 1.25; }
+.dg-call { position: absolute; left: 1400px; top: 420px; width: 320px; direction: rtl; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.dg-call .pair-tag { font-family: var(--font-body); font-size: 24px; }
+.dg-call-arrow { font-size: 22px; font-weight: 700; color: var(--color-accent-700); }
+
+.dg-objbox { position: absolute; box-sizing: border-box; width: 190px; border: 2px solid var(--color-text); background: var(--color-neutral-100); }
+.dg-objbox .dg-title { height: 32px; font-size: 18px; }
+.dg-objbox .dg-row { height: 28px; font-size: 16px; padding: 0 12px; }
+.solo-card .gx-code .cm { font-size: 0.8em; color: var(--color-neutral-600); }
+.app-grid-5 .app-text { font-size: 24px; }
 </style>
 </head>
 <body>
@@ -1467,6 +1494,78 @@ int n = CountFirstName(node1, "Adi");</div>
   <div class="page-foot" aria-hidden="true"></div>
 </section>
 
+<section class="slide content ref-slide tight step-slide" data-steps="1" data-label="מבנה התרגיל">
+  <h2 class="slide-title">מה אנחנו בונים?</h2>
+  <div class="dg-stage">
+    <span class="pair-tag dg-tag" style="left:0;top:0">מחלקת יישום (MusicApp)</span>
+    <span class="pair-tag dg-tag" style="left:380px;top:0">מחלקת אוסף (Playlist)</span>
+    <span class="pair-tag dg-tag" style="left:1400px;top:300px">מחלקה בסיסית (Song)</span>
+
+    <div class="dg-box" style="left:0;top:200px;width:270px;height:320px">
+      <div class="dg-title">MusicApp</div>
+      <span class="dg-field" style="left:16px;top:142px">playlists</span>
+      <div class="dg-cell" style="left:140px;top:60px">●</div>
+      <div class="dg-cell" style="left:140px;top:122px">●</div>
+      <div class="dg-cell" style="left:140px;top:184px">null</div>
+      <span class="dg-field" style="left:16px;top:268px">count: 2</span>
+    </div>
+
+    <div class="dg-box" style="left:380px;top:70px;width:280px;height:170px">
+      <div class="dg-title">Playlist</div>
+      <div class="dg-row">playlistName: "Workout"</div>
+      <div class="dg-row">songList ●</div>
+      <div class="dg-row">lastSong ●</div>
+    </div>
+    <div class="dg-node" style="left:760px;top:138px"><span>●</span><span>●</span></div>
+    <div class="dg-node" style="left:960px;top:138px"><span>●</span><span>●</span></div>
+    <div class="dg-node" style="left:1160px;top:138px"><span>●</span><span>null</span></div>
+    <div class="dg-objbox" style="left:760px;top:260px"><div class="dg-title">Song</div><div class="dg-row">Levitating</div><div class="dg-row">pop</div><div class="dg-row">52</div></div>
+    <div class="dg-objbox" style="left:960px;top:260px"><div class="dg-title">Song</div><div class="dg-row">Titanium</div><div class="dg-row">electronic</div><div class="dg-row">18</div></div>
+    <div class="dg-objbox" style="left:1160px;top:260px"><div class="dg-title">Song</div><div class="dg-row">Imagine</div><div class="dg-row">rock</div><div class="dg-row">34</div></div>
+
+    <div class="dg-box" style="left:380px;top:400px;width:280px;height:170px">
+      <div class="dg-title">Playlist</div>
+      <div class="dg-row">playlistName: "Chill"</div>
+      <div class="dg-row">songList ●</div>
+      <div class="dg-row">lastSong ●</div>
+    </div>
+    <div class="dg-node" style="left:760px;top:468px"><span>●</span><span>●</span></div>
+    <div class="dg-node" style="left:960px;top:468px"><span>●</span><span>null</span></div>
+    <div class="dg-objbox" style="left:760px;top:590px"><div class="dg-title">Song</div><div class="dg-row">Yellow</div><div class="dg-row">rock</div><div class="dg-row">27</div></div>
+    <div class="dg-objbox" style="left:960px;top:590px"><div class="dg-title">Song</div><div class="dg-row">Hello</div><div class="dg-row">pop</div><div class="dg-row">40</div></div>
+
+    <div class="dg-call" data-show="1-">
+      <span class="pair-tag">מחלקת יישום</span>
+      <span class="dg-call-arrow">↓ קוראת רק לפעולות של</span>
+      <span class="pair-tag">מחלקת אוסף</span>
+      <span class="dg-call-arrow">↓ קוראת רק לפעולות של</span>
+      <span class="pair-tag">מחלקה בסיסית</span>
+    </div>
+
+    <svg class="mem-arrows" width="1728" height="760" viewBox="0 0 1728 760" aria-hidden="true">
+      <defs><marker id="arrDG" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="14" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 Z" style="fill:var(--color-text)"/></marker></defs>
+      <g style="fill:none;stroke:var(--color-text);stroke-width:3">
+        <path d="M240 292 H310 V155 H378" marker-end="url(#arrDG)"/>
+        <path d="M240 354 H330 V485 H378" marker-end="url(#arrDG)"/>
+        <path d="M660 170 H758" marker-end="url(#arrDG)"/>
+        <path d="M865 170 H958" marker-end="url(#arrDG)"/>
+        <path d="M1065 170 H1158" marker-end="url(#arrDG)"/>
+        <path d="M795 202 V258" marker-end="url(#arrDG)"/>
+        <path d="M995 202 V258" marker-end="url(#arrDG)"/>
+        <path d="M1195 202 V258" marker-end="url(#arrDG)"/>
+        <path d="M600 240 V392 H1370 V170 H1302" marker-end="url(#arrDG)"/>
+        <path d="M660 500 H758" marker-end="url(#arrDG)"/>
+        <path d="M865 500 H958" marker-end="url(#arrDG)"/>
+        <path d="M795 532 V588" marker-end="url(#arrDG)"/>
+        <path d="M995 532 V588" marker-end="url(#arrDG)"/>
+        <path d="M600 570 V722 H1170 V500 H1102" marker-end="url(#arrDG)"/>
+      </g>
+    </svg>
+  </div>
+  <div class="step-dots" style="position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:5"><span data-hl="0-"></span><span data-hl="1-"></span></div>
+  <div class="page-foot" aria-hidden="true"></div>
+</section>
+
 <section class="slide content ref-slide tight" data-label="מחלקות התרגיל">
   <h2 class="slide-title">בחרו נושא וצרו עבורו מחלקה. לדוגמה:</h2>
   <div class="gx-grid ex4-grid">
@@ -1637,9 +1736,9 @@ int n = CountFirstName(node1, "Adi");</div>
   <div class="page-foot" aria-hidden="true"></div>
 </section-->
 
-<section class="slide content ref-slide tight" data-label="מחלקה מכילה">
+<section class="slide content ref-slide tight" data-label="מחלקת אוסף">
   <div class="solo-head">
-    <h2 class="slide-title">צרו מחלקה מכילה</h2>
+    <h2 class="slide-title">צרו מחלקת אוסף</h2>
     <div class="solo-tabs">
       <button type="button" class="on" data-cls="playlist">Playlist</button>
       <button type="button" data-cls="kita">Kita</button>
@@ -1661,12 +1760,13 @@ int n = CountFirstName(node1, "Adi");</div>
       <span class="pair-tag solo-tag">פעולות</span>
       <div class="grp"><pre class="gx-code">    public Playlist(string playlistName)
     public string GetPlaylistName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
-      <div class="grp"><pre class="gx-code">    public void AddSong(Song song)</pre><span class="grp-label">הוספה</span></div>
-      <div class="grp"><pre class="gx-code">    public bool PlaySong(string name, int minutes)</pre><span class="grp-label">עדכון</span></div>
-      <div class="grp"><pre class="gx-code">    public string GetGenre(string name)
-    public Node<b>&lt;Song&gt;</b> SongsInGenre(string genre)
-    public Song TopInGenre(string genre)</pre><span class="grp-label">חיפוש וסינון</span></div>
-      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Song&gt;</b> SortedByMinutes()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddSong(Song song)  <span class="cm">// false if already exists</span></pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool PlaySong(string name, int minutes)  <span class="cm">// adds minutes played</span></pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public bool RemoveSong(string name)  <span class="cm">// false if not found</span></pre><span class="grp-label">הסרה</span></div>
+      <div class="grp"><pre class="gx-code">    public int CountInGenre(string genre)  <span class="cm">// how many songs in genre</span>
+    public Node<b>&lt;Song&gt;</b> SongsInGenre(string genre)  <span class="cm">// new list: songs in genre</span>
+    public Song TopInGenre(string genre)  <span class="cm">// most played song in genre</span></pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Song&gt;</b> SortedByMinutes()  <span class="cm">// new list, most played first</span></pre><span class="grp-label">בונוס: מיון</span></div>
       <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
     </div>
     <pre class="gx-code">}</pre>
@@ -1685,12 +1785,13 @@ int n = CountFirstName(node1, "Adi");</div>
       <span class="pair-tag solo-tag">פעולות</span>
       <div class="grp"><pre class="gx-code">    public Kita(string kitaName)
     public string GetKitaName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
-      <div class="grp"><pre class="gx-code">    public void AddStudent(Student student)</pre><span class="grp-label">הוספה</span></div>
-      <div class="grp"><pre class="gx-code">    public bool TakeExam(string name, int grade)</pre><span class="grp-label">עדכון</span></div>
-      <div class="grp"><pre class="gx-code">    public string GetMegama(string name)
-    public Node<b>&lt;Student&gt;</b> StudentsInMegama(string megama)
-    public Student BestInMegama(string megama)</pre><span class="grp-label">חיפוש וסינון</span></div>
-      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Student&gt;</b> RankedByGrade()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddStudent(Student student)  <span class="cm">// false if already exists</span></pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool TakeExam(string name, int grade)  <span class="cm">// sets the grade</span></pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public bool RemoveStudent(string name)  <span class="cm">// false if not found</span></pre><span class="grp-label">הסרה</span></div>
+      <div class="grp"><pre class="gx-code">    public int CountInMegama(string megama)  <span class="cm">// how many students in megama</span>
+    public Node<b>&lt;Student&gt;</b> StudentsInMegama(string megama)  <span class="cm">// new list: students in megama</span>
+    public Student BestInMegama(string megama)  <span class="cm">// highest grade in megama</span></pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Student&gt;</b> RankedByGrade()  <span class="cm">// new list, highest first</span></pre><span class="grp-label">בונוס: מיון</span></div>
       <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
     </div>
     <pre class="gx-code">}</pre>
@@ -1709,12 +1810,13 @@ int n = CountFirstName(node1, "Adi");</div>
       <span class="pair-tag solo-tag">פעולות</span>
       <div class="grp"><pre class="gx-code">    public CarRental(string branchName)
     public string GetBranchName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
-      <div class="grp"><pre class="gx-code">    public void AddCar(Car car)</pre><span class="grp-label">הוספה</span></div>
-      <div class="grp"><pre class="gx-code">    public bool RentCar(string licensePlate, int km)</pre><span class="grp-label">עדכון</span></div>
-      <div class="grp"><pre class="gx-code">    public string GetModel(string licensePlate)
-    public Node<b>&lt;Car&gt;</b> CarsOfModel(string model)
-    public Car LowestKmOfModel(string model)</pre><span class="grp-label">חיפוש וסינון</span></div>
-      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Car&gt;</b> SortedByKm()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddCar(Car car)  <span class="cm">// false if already exists</span></pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool RentCar(string licensePlate, int km)  <span class="cm">// adds km</span></pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public bool RemoveCar(string licensePlate)  <span class="cm">// false if not found</span></pre><span class="grp-label">הסרה</span></div>
+      <div class="grp"><pre class="gx-code">    public int CountOfModel(string model)  <span class="cm">// how many cars of model</span>
+    public Node<b>&lt;Car&gt;</b> CarsOfModel(string model)  <span class="cm">// new list: cars of model</span>
+    public Car LowestKmOfModel(string model)  <span class="cm">// fewest km of model</span></pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Car&gt;</b> SortedByKm()  <span class="cm">// new list, most km first</span></pre><span class="grp-label">בונוס: מיון</span></div>
       <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
     </div>
     <pre class="gx-code">}</pre>
@@ -1733,12 +1835,13 @@ int n = CountFirstName(node1, "Adi");</div>
       <span class="pair-tag solo-tag">פעולות</span>
       <div class="grp"><pre class="gx-code">    public SoccerTeam(string teamName)
     public string GetTeamName()</pre><span class="grp-label">בנאי ופעולה מאחזרת (getter)</span></div>
-      <div class="grp"><pre class="gx-code">    public void AddPlayer(Player player)</pre><span class="grp-label">הוספה</span></div>
-      <div class="grp"><pre class="gx-code">    public bool AddGoals(string name, int goals)</pre><span class="grp-label">עדכון</span></div>
-      <div class="grp"><pre class="gx-code">    public string GetPosition(string name)
-    public Node<b>&lt;Player&gt;</b> PlayersInPosition(string position)
-    public Player TopScorerInPosition(string position)</pre><span class="grp-label">חיפוש וסינון</span></div>
-      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Player&gt;</b> RankedByGoals()</pre><span class="grp-label">בונוס: מיון</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddPlayer(Player player)  <span class="cm">// false if already exists</span></pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddGoals(string name, int goals)  <span class="cm">// adds goals</span></pre><span class="grp-label">עדכון</span></div>
+      <div class="grp"><pre class="gx-code">    public bool RemovePlayer(string name)  <span class="cm">// false if not found</span></pre><span class="grp-label">הסרה</span></div>
+      <div class="grp"><pre class="gx-code">    public int CountInPosition(string position)  <span class="cm">// how many players in position</span>
+    public Node<b>&lt;Player&gt;</b> PlayersInPosition(string position)  <span class="cm">// new list: players in position</span>
+    public Player TopScorerInPosition(string position)  <span class="cm">// most goals in position</span></pre><span class="grp-label">חיפוש וסינון</span></div>
+      <div class="grp"><pre class="gx-code">    public Node<b>&lt;Player&gt;</b> RankedByGoals()  <span class="cm">// new list, most goals first</span></pre><span class="grp-label">בונוס: מיון</span></div>
       <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
     </div>
     <pre class="gx-code">}</pre>
@@ -1748,28 +1851,156 @@ int n = CountFirstName(node1, "Adi");</div>
 </section>
 
 <section class="slide content ref-slide tight" data-label="התוכנית הראשית">
-  <h2 class="slide-title">צרו יישום לבדיקת המחלקה המכילה שיצרתם:</h2>
+  <h2 class="slide-title">בדקו את מחלקת האוסף שיצרתם:</h2>
+  <div class="app-grid app-grid-5">
     <div class="app-card">
       <div class="app-head"><span class="app-num">1</span><h3 class="app-title">יצירה</h3></div>
-      <p class="app-text">צרו מחלקה מכילה ולפחות 5 עצמים. השתמשו בשתי הפעולות הבונות.</p>
-      <!--pre class="app-ex">Playlist p = new Playlist("Workout");</pre-->
+      <p class="app-text">צרו אוסף אחד, ולפחות 5 עצמים של המחלקה הבסיסית. השתמשו בשתי הפעולות הבונות של המחלקה הבסיסית. לעצמים שנוצרו בלי קטגוריה, קבעו אותה בעזרת פעולת ה־Set.</p>
     </div>
     <div class="app-card">
       <div class="app-head"><span class="app-num">2</span><h3 class="app-title">הוספה והדפסה</h3></div>
-      <p class="app-text">הוסיפו את כל העצמים למחלקה המכילה והדפיסו אותה.</p>
+      <p class="app-text">הוסיפו את העצמים לאוסף, והדפיסו אותו. נסו להוסיף שוב עצם שכבר נוסף, ובדקו שהוחזר false.</p>
     </div>
     <div class="app-card">
-      <div class="app-head"><span class="app-num">3</span><h3 class="app-title">עדכון</h3></div>
-      <p class="app-text">בדקו את פעולת העדכון, כולל מקרים לא תקינים.</p>
+      <div class="app-head"><span class="app-num">3</span><h3 class="app-title">עדכון השדה המספרי</h3></div>
+      <p class="app-text">זמנו את פעולת העדכון כמה פעמים. נסו גם שם שלא קיים, וגם ערך לא חוקי (למשל מספר שלילי). הדפיסו מה הוחזר.</p>
     </div>
     <div class="app-card">
-      <div class="app-head"><span class="app-num">4</span><h3 class="app-title">חיפוש וסינון</h3></div>
-      <p class="app-text">זמנו כל אחת מפעולות החיפוש והסינון, והדפיסו את התוצאות.</p>
+      <div class="app-head"><span class="app-num">4</span><h3 class="app-title">הסרה</h3></div>
+      <p class="app-text">הסירו את העצם הראשון, עצם מהאמצע והעצם האחרון, והדפיסו אחרי כל הסרה. אחרי הסרת האחרון הוסיפו עצם חדש והדפיסו. נסו גם להסיר עצם שלא קיים.</p>
     </div>
     <div class="app-card">
-      <div class="app-head"><span class="app-num">5</span><h3 class="app-title">בונוס: מיון</h3></div>
-      <p class="app-text">הדפיסו את הרשימה הממוינת.</p>
+      <div class="app-head"><span class="app-num">5</span><h3 class="app-title">חיפוש וסינון לפי קטגוריה</h3></div>
+      <p class="app-text">בחרו קטגוריה שיש בה עצמים, וזמנו עבורה את הספירה, הרשימה החדשה והעצם המוביל. הדפיסו. חזרו על זה עם קטגוריה שאין בה עצמים.</p>
     </div>
+    <!--div class="app-card">
+      <div class="app-head"><span class="app-num">6</span><h3 class="app-title">פעולה חיצונית</h3></div>
+      <p class="app-text">כתבו ב־Program פעולה סטטית שמקבלת את הרשימה שמחזירה פעולת הסינון, וסופרת בה עצמים לפי תנאי על השדה המספרי.</p>
+    </div-->
+  </div>
+  <p class="app-bonus">בונוס: הדפיסו את הרשימה הממוינת לפי השדה המספרי.</p>
+  <div class="page-foot" aria-hidden="true"></div>
+</section>
+
+<section class="slide content ref-slide tight" data-label="מחלקת יישום">
+  <div class="solo-head">
+    <h2 class="slide-title">צרו מחלקת יישום</h2>
+    <div class="solo-tabs">
+      <button type="button" class="on" data-cls="musicapp">MusicApp</button>
+      <button type="button" data-cls="school">School</button>
+      <button type="button" data-cls="rentalcompany">RentalCompany</button>
+      <button type="button" data-cls="league">League</button>
+    </div>
+  </div>
+
+  <div class="solo-card" data-cls="musicapp">
+    <pre class="gx-code">public class <span class="cn">MusicApp</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private Playlist[] <span class="cn">playlists</span>;
+    private int count;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public MusicApp(int size)  <span class="cm">// size = max playlists</span></pre><span class="grp-label">בנאי</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddPlaylist(Playlist playlist)  <span class="cm">// false if full</span></pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public Playlist FindPlaylist(string playlistName)  <span class="cm">// null if not found</span></pre><span class="grp-label">חיפוש לפי שם</span></div>
+      <div class="grp"><pre class="gx-code">    public Song TopInGenreInApp(string genre)
+        <span class="cm">// uses TopInGenre of each playlist</span>
+    public int CountInGenreInApp(string genre)
+        <span class="cm">// uses CountInGenre of each playlist</span></pre><span class="grp-label">שאילתות על כל המבנה</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+  <div class="solo-card" data-cls="school" hidden>
+    <pre class="gx-code">public class <span class="cn">School</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private Kita[] <span class="cn">kitot</span>;
+    private int count;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public School(int size)  <span class="cm">// size = max kitot</span></pre><span class="grp-label">בנאי</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddKita(Kita kita)  <span class="cm">// false if full</span></pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public Kita FindKita(string kitaName)  <span class="cm">// null if not found</span></pre><span class="grp-label">חיפוש לפי שם</span></div>
+      <div class="grp"><pre class="gx-code">    public Student BestInMegamaInSchool(string megama)
+        <span class="cm">// uses BestInMegama of each kita</span>
+    public int CountInMegamaInSchool(string megama)
+        <span class="cm">// uses CountInMegama of each kita</span></pre><span class="grp-label">שאילתות על כל המבנה</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+  <div class="solo-card" data-cls="rentalcompany" hidden>
+    <pre class="gx-code">public class <span class="cn">RentalCompany</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private CarRental[] <span class="cn">branches</span>;
+    private int count;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public RentalCompany(int size)  <span class="cm">// size = max branches</span></pre><span class="grp-label">בנאי</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddBranch(CarRental branch)  <span class="cm">// false if full</span></pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public CarRental FindBranch(string branchName)  <span class="cm">// null if not found</span></pre><span class="grp-label">חיפוש לפי שם</span></div>
+      <div class="grp"><pre class="gx-code">    public Car LowestKmOfModelInCompany(string model)
+        <span class="cm">// uses LowestKmOfModel of each branch</span>
+    public int CountOfModelInCompany(string model)
+        <span class="cm">// uses CountOfModel of each branch</span></pre><span class="grp-label">שאילתות על כל המבנה</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+  <div class="solo-card" data-cls="league" hidden>
+    <pre class="gx-code">public class <span class="cn">League</span>
+{</pre>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">תכונות</span>
+      <pre class="gx-code">    private SoccerTeam[] <span class="cn">teams</span>;
+    private int count;</pre>
+    </div>
+    <div class="solo-sec">
+      <span class="pair-tag solo-tag">פעולות</span>
+      <div class="grp"><pre class="gx-code">    public League(int size)  <span class="cm">// size = max teams</span></pre><span class="grp-label">בנאי</span></div>
+      <div class="grp"><pre class="gx-code">    public bool AddTeam(SoccerTeam team)  <span class="cm">// false if full</span></pre><span class="grp-label">הוספה</span></div>
+      <div class="grp"><pre class="gx-code">    public SoccerTeam FindTeam(string teamName)  <span class="cm">// null if not found</span></pre><span class="grp-label">חיפוש לפי שם</span></div>
+      <div class="grp"><pre class="gx-code">    public Player TopScorerInPositionInLeague(string position)
+        <span class="cm">// uses TopScorerInPosition of each team</span>
+    public int CountInPositionInLeague(string position)
+        <span class="cm">// uses CountInPosition of each team</span></pre><span class="grp-label">שאילתות על כל המבנה</span></div>
+      <div class="grp"><pre class="gx-code">    public override string ToString()</pre><span class="grp-label">הדפסה</span></div>
+    </div>
+    <pre class="gx-code">}</pre>
+  </div>
+
+  <div class="page-foot" aria-hidden="true"></div>
+</section>
+
+<section class="slide content ref-slide tight" data-label="בדיקת מחלקת היישום">
+  <h2 class="slide-title">בדקו את מחלקת היישום:</h2>
+  <div class="app-grid app-grid-4">
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">1</span><h3 class="app-title">יצירה</h3></div>
+      <p class="app-text">צרו עצם של מחלקת היישום בגודל 3. צרו 3 אוספים, והוסיפו לכל אחד כמה עצמים.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">2</span><h3 class="app-title">הוספה</h3></div>
+      <p class="app-text">הוסיפו את 3 האוספים לעצם היישום. נסו להוסיף אוסף רביעי, ובדקו שהוחזר false.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">3</span><h3 class="app-title">חיפוש לפי שם</h3></div>
+      <p class="app-text">חפשו אוסף לפי השם שלו והדפיסו אותו. נסו גם שם שלא קיים, ובדקו שהוחזר null.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-head"><span class="app-num">4</span><h3 class="app-title">שאילתות על כל האוספים</h3></div>
+      <p class="app-text">בחרו קטגוריה, וזמנו עבורה את שתי הפעולות שעוברות על כל האוספים. הדפיסו. חזרו על זה עם קטגוריה שאין בה עצמים.</p>
+    </div>
+  </div>
   <div class="page-foot" aria-hidden="true"></div>
 </section>
 
